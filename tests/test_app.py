@@ -13,3 +13,11 @@ def test_read_root_return_ok_e_ola_mundo():
     response = client.get('/')  # Act (ação)
     assert response.status_code == HTTPStatus.OK  # Assert (verificação)
     assert response.json() == {'message': 'Olá, Mundo!'}  # Assert
+
+
+def test_user():
+    client = TestClient(app)  # Arrange (organização)
+
+    response = client.get('/user')  # Act (ação)
+    assert response.status_code == HTTPStatus.OK  # Assert (vericicaça)
+    assert response.json() == {'usuario': 'fulano'}  # Assert
