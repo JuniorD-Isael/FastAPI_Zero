@@ -21,3 +21,11 @@ def test_user():
     response = client.get('/user')  # Act (ação)
     assert response.status_code == HTTPStatus.OK  # Assert (vericicaça)
     assert response.json() == {'usuario': 'fulano'}  # Assert
+
+
+def ola_mundo():
+    client = TestClient(app)  # Arrange (organização)
+
+    response = client.get('/ola-mundo')  # Act (ação)
+    assert response.status_code == HTTPStatus.OK  # Assert (vericicaça)
+    assert "<h1> Olá Mundo </h1>" in response.text
